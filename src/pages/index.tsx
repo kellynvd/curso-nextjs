@@ -12,6 +12,12 @@ interface HomeProps {
 }
 
 export default function Home({ recommendedProducts }: HomeProps) {
+  async function handleSum() {
+    const math = (await import('../lig/math')).default;
+
+    alert(math.sum(3,5));
+  }
+
   return (
     <div>
       <section>
@@ -27,6 +33,8 @@ export default function Home({ recommendedProducts }: HomeProps) {
           })}
         </ul>
       </section>
+
+      <button onClick={handleSum}>Sum!</button>
     </div>
   )
 }
